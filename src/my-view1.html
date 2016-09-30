@@ -9,6 +9,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/vaadin-grid/vaadin-grid.html">
+<link rel="import" href="../bower_components/vaadin-date-picker/vaadin-date-picker.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-view1">
@@ -22,11 +26,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <div class="circle">1</div>
-      <h1>View One</h1>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+      <paper-input label="Task"></paper-input>
+      <vaadin-date-picker label="Due"></vaadin-date-picker>
+      <paper-button raised="">Add Todo</paper-button>
     </div>
+
+    <vaadin-grid>
+      <table>
+        <colgroup>
+          <col name="task">
+          <col name="due"> 
+        </colgroup>
+      </table>
+    </vaadin-grid>
   </template>
 
   <script>
