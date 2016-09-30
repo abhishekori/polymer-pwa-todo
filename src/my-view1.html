@@ -23,6 +23,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         padding: 10px;
       }
+
+      .form{
+        display: flex;
+      }
+
+      .form paper-input{
+        flex: 1;
+      }
+
+      .form vaadin-date-picker {
+        width: 140px  ;
+      }
+      .form paper-button{
+        align-self: flex-end;
+      }
     </style>
 
     <div class="card">
@@ -35,7 +50,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <table>
         <colgroup>
           <col name="task">
-          <col name="due"> 
+          <col name="due">
         </colgroup>
       </table>
     </vaadin-grid>
