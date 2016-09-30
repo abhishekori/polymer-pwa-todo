@@ -14,6 +14,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/vaadin-grid/vaadin-grid.html">
 <link rel="import" href="../bower_components/vaadin-date-picker/vaadin-date-picker.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
 
 <dom-module id="my-view1">
   <template>
@@ -48,17 +49,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <vaadin-date-picker label="Due" value="{{todo.due}}"></vaadin-date-picker>
       <br>
       <paper-button raised="" on-tap="_addTodo">Add Todo</paper-button>
+      <br><br><br>
+      <vaadin-grid items="{{todos}}">
+        <table>
+          <colgroup>
+            <col name="task">
+            <col name="due">
+          </colgroup>
+        </table>
+      </vaadin-grid>
     </div>
 
-
-    <vaadin-grid items="{{todos}}">
-      <table>
-        <colgroup>
-          <col name="task">
-          <col name="due">
-        </colgroup>
-      </table>
-    </vaadin-grid>
+    <iron-localstorage name="todos" value="{{todos}}" on-iron-localstorage-load-empty="initializeStorage"></iron-localstorage>
   </template>
 
   <script>
@@ -82,7 +84,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _addTodo:function(){
         this.push('todos',this.todo);
         this.todo={};
-      } 
+      },
+      initializeStorage:function(){
+        this.todos=[];
+      }
     });
   </script>
 </dom-module>
